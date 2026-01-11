@@ -1,8 +1,8 @@
+import Footer from '@/Footer/Footer';
+import Header from '@/Header/Header';
+import Main from '@/Main/Main';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
-import Main from './components/Main/Main';
 import './styles/index.css';
 import './styles/reset.css';
 
