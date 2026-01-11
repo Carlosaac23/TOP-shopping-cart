@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+:root {
+  --background: #fff7ed;
+  --foreground: #431407;
+
+  --primary-color: #fb923c;
+  --secondary-color: #ea580c;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -12,4 +20,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: var(--background);
+  color: var(--foreground);
 }
