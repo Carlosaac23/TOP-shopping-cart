@@ -1,17 +1,36 @@
-import Footer from '@/Footer/Footer';
-import Header from '@/Header/Header';
-import Main from '@/Main/Main';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router';
+import App from './App';
+import CartPage from './layouts/CartPage/CartPage';
+import HomePage from './layouts/HomePage/HomePage';
+import ShopPage from './layouts/ShopPage/ShopPage';
 import './styles/index.css';
 import './styles/reset.css';
 
+const router = createBrowserRouter([
+  {
+    path: '/TOP-shopping-cart/',
+    element: <App />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: 'shop',
+        element: <ShopPage />,
+      },
+      {
+        path: 'cart',
+        element: <CartPage />,
+      },
+    ],
+  },
+]);
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <div className='main'>
-      <Header />
-      <Main />
-      <Footer />
-    </div>
+    <RouterProvider router={router} />
   </StrictMode>
 );
