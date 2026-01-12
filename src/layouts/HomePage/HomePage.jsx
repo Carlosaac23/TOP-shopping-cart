@@ -1,33 +1,33 @@
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import Product from '../../components/Product/Product';
-import { fetchProducts as products } from '../../lib/fetch-products';
+import { fetchProducts } from '../../lib/fetch-products';
 import './HomePage.css';
 
 function useProducts() {
-  const [data, setData] = useState(null);
+  const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    async function fetchProducts() {
+    async function fetchData() {
       try {
-        const data = await products();
-        setData(data);
+        const data = await fetchProducts();
+        setProducts(data);
         setError(null);
       } catch (error) {
         setError(error.message);
-        setData(null);
+        setProducts(null);
       }
     }
 
-    fetchProducts();
+    fetchData();
   }, []);
 
-  return { data, error };
+  return { products, error };
 }
 
 export default function HomePage() {
-  const { data: products, error } = useProducts();
+  const { products, error } = useProducts();
   console.log(products);
 
   if (error) {
