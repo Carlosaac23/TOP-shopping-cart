@@ -5,7 +5,9 @@
 }
 
 .products__container {
+  margin: 0 4rem 3rem 4rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 1.5rem;
 }
