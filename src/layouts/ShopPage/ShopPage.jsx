@@ -32,7 +32,6 @@ function useProducts() {
 
 export default function ShopPage() {
   const { products, error, isLoading } = useProducts();
-  console.log(products);
 
   if (error) {
     toast.error(error);
@@ -50,13 +49,11 @@ export default function ShopPage() {
           }}
         />
       ) : (
-        <>
-          <div className='products__container'>
-            {products?.map(product => (
-              <Product key={product.id} {...product} />
-            ))}
-          </div>
-        </>
+        <div className='products__container'>
+          {products?.map(product => (
+            <Product key={product.id} {...product} />
+          ))}
+        </div>
       )}
     </main>
   );
