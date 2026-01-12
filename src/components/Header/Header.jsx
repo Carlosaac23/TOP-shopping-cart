@@ -5,7 +5,9 @@ import './Header.css';
 export default function Header() {
   return (
     <header className='header'>
-      <h1 className='header__title'>Shopping Cart</h1>
+      <Link className='header__title-link' to='/TOP-shopping-cart/'>
+        <h1 className='header__title'>Shopping Cart</h1>
+      </Link>
 
       <nav>
         <ul className='header__links'>
