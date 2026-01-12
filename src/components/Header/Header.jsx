@@ -1,3 +1,4 @@
+import { ShoppingBasket } from 'lucide-react';
 import { Link } from 'react-router';
 import './Header.css';
 
@@ -15,7 +16,7 @@ export default function Header() {
             Shop
           </Link>
           <Link to='cart' className='header__link'>
-            Cart
+            <ShoppingBasket />
           </Link>
         </ul>
       </nav>
