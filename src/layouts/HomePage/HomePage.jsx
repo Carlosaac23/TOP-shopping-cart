@@ -52,13 +52,8 @@ export default function HomePage() {
       ) : (
         <>
           <div className='products__container'>
-            {products?.map(({ id, title, price, description }) => (
-              <Product
-                key={id}
-                title={title}
-                price={price}
-                description={description}
-              />
+            {products?.map(product => (
+              <Product key={product.id} {...product} />
             ))}
           </div>
         </>
