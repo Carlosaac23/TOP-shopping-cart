@@ -8,7 +8,7 @@ export default function ProductCard({
   rating: { count, rate },
 }) {
   return (
-    <div className='w-80 rounded-custom border border-neutral-300 p-4 shadow-sm transition-transform duration-150 ease-out hover:scale-98'>
+    <div className='w-80 rounded-custom border border-neutral-300 p-4 shadow-xs transition-shadow duration-150 ease-out hover:shadow-md'>
       <img
         className='h-40 w-full rounded-xl bg-neutral-200 object-contain p-4'
         src={image}
