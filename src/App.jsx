@@ -5,7 +5,7 @@ import Header from '@/Header/Header';
 
 export default function App() {
   return (
-    <div className='main'>
+    <div className='flex min-h-screen flex-col bg-orange-50 text-neutral-950'>
       <Header />
       <Outlet />
       <Footer />
