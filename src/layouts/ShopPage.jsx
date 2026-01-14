@@ -50,7 +50,7 @@ export default function ShopPage() {
           }}
         />
       ) : (
-        <div className='mx-8 mb-8 flex flex-wrap justify-center gap-6'>
+        <div className='mx-8 mb-10 flex flex-wrap justify-center gap-6'>
           {products?.map(product => (
             <ProductCard key={product.id} {...product} />
           ))}
