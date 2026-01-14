@@ -1,10 +1,9 @@
-import './ShopPage.css';
-
 import { useEffect, useState } from 'react';
 import { BeatLoader } from 'react-spinners';
 import { toast } from 'sonner';
 
-import ProductCard from '../../components/ProductCard/ProductCard';
+import ProductCard from '@/ProductCard';
+
 import { fetchProducts } from '../../lib/fetch-products';
 
 function useProducts() {
@@ -42,7 +41,7 @@ export default function ShopPage() {
 
   return (
     <main>
-      <h1 className='products__title'>Products</h1>
+      <h1 className='my-8 text-center text-3xl'>Products</h1>
       {isLoading ? (
         <BeatLoader
           color='#fb923c'
@@ -51,7 +50,7 @@ export default function ShopPage() {
           }}
         />
       ) : (
-        <div className='products__container'>
+        <div className='mx-8 mb-8 flex flex-wrap justify-center gap-6'>
           {products?.map(product => (
             <ProductCard key={product.id} {...product} />
           ))}
