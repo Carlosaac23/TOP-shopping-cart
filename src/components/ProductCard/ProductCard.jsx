@@ -4,7 +4,7 @@ import { CirclePlus } from 'lucide-react';
 
 import { capitalize } from '../../utils';
 
-export default function Product({
+export default function ProductCard({
   image,
   title,
   category,
