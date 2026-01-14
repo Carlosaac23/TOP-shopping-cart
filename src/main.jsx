@@ -6,9 +6,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router';
 import { Toaster } from 'sonner';
 
 import App from './App';
-import CartPage from './layouts/CartPage/CartPage';
-import HomePage from './layouts/HomePage/HomePage';
-import ShopPage from './layouts/ShopPage/ShopPage';
+import CartPage from './layouts/CartPage';
+import HomePage from './layouts/HomePage';
+import ShopPage from './layouts/ShopPage';
 
 const router = createBrowserRouter([
   {
