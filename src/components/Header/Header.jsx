@@ -1,6 +1,7 @@
+import './Header.css';
+
 import { ShoppingBasket } from 'lucide-react';
 import { Link } from 'react-router';
-import './Header.css';
 
 export default function Header() {
   return (

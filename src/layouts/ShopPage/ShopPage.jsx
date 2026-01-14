@@ -1,9 +1,11 @@
+import './ShopPage.css';
+
 import { useEffect, useState } from 'react';
 import { BeatLoader } from 'react-spinners';
 import { toast } from 'sonner';
+
 import Product from '../../components/Product/Product';
 import { fetchProducts } from '../../lib/fetch-products';
-import './ShopPage.css';
 
 function useProducts() {
   const [products, setProducts] = useState(null);

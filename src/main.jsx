@@ -1,13 +1,15 @@
+import './styles/index.css';
+import './styles/reset.css';
+
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import { Toaster } from 'sonner';
+
 import App from './App';
 import CartPage from './layouts/CartPage/CartPage';
 import HomePage from './layouts/HomePage/HomePage';
 import ShopPage from './layouts/ShopPage/ShopPage';
-import './styles/index.css';
-import './styles/reset.css';
 
 const router = createBrowserRouter([
   {

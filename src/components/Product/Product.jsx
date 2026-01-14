@@ -1,6 +1,8 @@
-import { CirclePlus } from 'lucide-react';
-import { capitalize } from '../../utils';
 import './Product.css';
+
+import { CirclePlus } from 'lucide-react';
+
+import { capitalize } from '../../utils';
 
 export default function Product({
   image,
