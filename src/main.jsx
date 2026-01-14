@@ -1,5 +1,4 @@
-import './styles/index.css';
-import './styles/reset.css';
+import './index.css';
 
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
