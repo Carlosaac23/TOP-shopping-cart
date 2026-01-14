@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { BeatLoader } from 'react-spinners';
 import { toast } from 'sonner';
 
-import Product from '../../components/Product/Product';
+import ProductCard from '../../components/ProductCard/ProductCard';
 import { fetchProducts } from '../../lib/fetch-products';
 
 function useProducts() {
@@ -53,7 +53,7 @@ export default function ShopPage() {
       ) : (
         <div className='products__container'>
           {products?.map(product => (
-            <Product key={product.id} {...product} />
+            <ProductCard key={product.id} {...product} />
           ))}
         </div>
       )}
