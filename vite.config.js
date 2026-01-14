@@ -10,7 +10,7 @@ export default defineConfig({
   base: '/TOP-shopping-cart/',
   resolve: {
     alias: {
-      '@': path.resolve('./src/components'),
+      '@': path.resolve(__dirname, './src/components'),
     },
   },
 });
