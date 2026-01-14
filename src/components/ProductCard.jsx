@@ -1,7 +1,5 @@
 import { CirclePlus } from 'lucide-react';
 
-import { capitalize } from '../utils';
-
 export default function ProductCard({
   image,
   title,
@@ -20,9 +18,7 @@ export default function ProductCard({
         <h2 className='w-[75%] text-xl text-orange-400'>{title}</h2>
         <CirclePlus size={28} color='#fb923c' />
       </div>
-      <p className='mb-2 text-sm text-neutral-500 uppercase'>
-        {capitalize(category)}
-      </p>
+      <p className='mb-2 text-sm text-neutral-500 uppercase'>{category}</p>
       <p className='inline-block rounded-md bg-orange-400 px-4 py-2 text-2xl font-bold'>
         ${price}
       </p>
