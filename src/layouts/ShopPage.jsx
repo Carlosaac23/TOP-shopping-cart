@@ -4,7 +4,7 @@ import { toast } from 'sonner';
 
 import ProductCard from '@/ProductCard';
 
-import { fetchProducts } from '../../lib/fetch-products';
+import { fetchProducts } from '../lib/fetch-products';
 
 function useProducts() {
   const [products, setProducts] = useState(null);
