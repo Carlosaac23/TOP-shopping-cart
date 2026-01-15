@@ -41,7 +41,9 @@ export default function ShopPage() {
 
   return (
     <main>
-      <h1 className='my-8 text-center text-3xl'>Products</h1>
+      <h1 className='my-8 text-center text-4xl font-bold tracking-tight'>
+        Products
+      </h1>
       {isLoading ? (
         <BeatLoader
           size={20}
