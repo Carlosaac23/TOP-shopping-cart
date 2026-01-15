@@ -17,16 +17,14 @@ function useFilterProducts() {
       try {
         let filteredProducts = [];
         const data = await fetchProducts();
-        console.log(data);
 
         while (filteredProducts.length < 3) {
           const randomId = randomNumber(data.length);
           const newProduct = data.find(product => product.id === randomId);
-          console.log('New Product: ', newProduct);
           const isDuplicate = filteredProducts.some(
             product => product.id === newProduct.id
           );
-          console.log('Is duplicate: ', isDuplicate);
+
           if (!isDuplicate) {
             filteredProducts.push(newProduct);
           }
