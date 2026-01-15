@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { BeatLoader } from 'react-spinners';
 import { toast } from 'sonner';
 
 import ProductCard from '@/ProductCard';
@@ -9,6 +10,7 @@ import { randomNumber } from '../utils';
 function useFilterProducts() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -26,17 +28,19 @@ function useFilterProducts() {
       } catch (error) {
         setError(error.message);
         setData(null);
+      } finally {
+        setIsLoading(false);
       }
     }
 
     fetchData();
   }, []);
 
-  return { data, error };
+  return { data, error, isLoading };
 }
 
 export default function HomePage() {
-  const { data, error } = useFilterProducts();
+  const { data, error, isLoading } = useFilterProducts();
 
   if (error) {
     toast.error(error);
@@ -57,11 +61,21 @@ export default function HomePage() {
           Featured Products
         </h2>
 
-        <div className='grid gap-6 sm:grid-cols-2 md:grid-cols-3'>
-          {data?.map(product => (
-            <ProductCard key={product.id} {...product} />
-          ))}
-        </div>
+        {isLoading ? (
+          <BeatLoader
+            size={20}
+            color='#fb923c'
+            cssOverride={{
+              textAlign: 'center',
+            }}
+          />
+        ) : (
+          <div className='grid gap-6 sm:grid-cols-2 md:grid-cols-3'>
+            {data?.map(product => (
+              <ProductCard key={product.id} {...product} />
+            ))}
+          </div>
+        )}
       </section>
     </main>
   );
