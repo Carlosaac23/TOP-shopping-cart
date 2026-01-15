@@ -15,6 +15,7 @@ const router = createBrowserRouter([
   {
     path: '/TOP-shopping-cart/',
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -27,10 +28,6 @@ const router = createBrowserRouter([
       {
         path: 'cart',
         element: <CartPage />,
-      },
-      {
-        path: '*',
-        element: <ErrorPage />,
       },
     ],
   },
