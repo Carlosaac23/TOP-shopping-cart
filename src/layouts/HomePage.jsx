@@ -17,10 +17,19 @@ function useFilterProducts() {
       try {
         let filteredProducts = [];
         const data = await fetchProducts();
-        for (let i = 0; i < 3; i++) {
+        console.log(data);
+
+        while (filteredProducts.length < 3) {
           const randomId = randomNumber(data.length);
-          const product = data.find(product => product.id === randomId);
-          filteredProducts.push(product);
+          const newProduct = data.find(product => product.id === randomId);
+          console.log('New Product: ', newProduct);
+          const isDuplicate = filteredProducts.some(
+            product => product.id === newProduct.id
+          );
+          console.log('Is duplicate: ', isDuplicate);
+          if (!isDuplicate) {
+            filteredProducts.push(newProduct);
+          }
         }
 
         setData(filteredProducts);
@@ -40,7 +49,7 @@ function useFilterProducts() {
 }
 
 export default function HomePage() {
-  const { data, error, isLoading } = useFilterProducts();
+  const { data: filteredProducts, error, isLoading } = useFilterProducts();
 
   if (error) {
     toast.error(error);
@@ -71,7 +80,7 @@ export default function HomePage() {
           />
         ) : (
           <div className='grid gap-6 sm:grid-cols-2 md:grid-cols-3'>
-            {data?.map(product => (
+            {filteredProducts?.map(product => (
               <ProductCard key={product.id} {...product} />
             ))}
           </div>
