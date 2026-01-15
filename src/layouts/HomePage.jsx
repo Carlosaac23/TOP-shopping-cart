@@ -15,7 +15,7 @@ function useFilterProducts() {
   useEffect(() => {
     async function fetchData() {
       try {
-        let filteredProducts = [];
+        const filteredProducts = [];
         const data = await fetchProducts();
 
         while (filteredProducts.length < 3) {
