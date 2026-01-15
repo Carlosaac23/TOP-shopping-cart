@@ -44,6 +44,7 @@ export default function ShopPage() {
       <h1 className='my-8 text-center text-3xl'>Products</h1>
       {isLoading ? (
         <BeatLoader
+          size={20}
           color='#fb923c'
           cssOverride={{
             textAlign: 'center',
