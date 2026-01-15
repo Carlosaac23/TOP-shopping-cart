@@ -5,7 +5,9 @@ export default function Header() {
   return (
     <header className='flex items-center justify-between bg-orange-400 p-8 shadow-sm'>
       <Link to='/TOP-shopping-cart/'>
-        <h1 className='text-2xl font-extrabold uppercase'>Shopping Cart</h1>
+        <h1 className='text-2xl font-extrabold tracking-wider uppercase'>
+          Minimal Shop
+        </h1>
       </Link>
 
       <nav>
