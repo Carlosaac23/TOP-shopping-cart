@@ -7,6 +7,7 @@ import { Toaster } from 'sonner';
 
 import App from './App';
 import CartPage from './layouts/CartPage';
+import ErrorPage from './layouts/ErrorPage';
 import HomePage from './layouts/HomePage';
 import ShopPage from './layouts/ShopPage';
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: 'cart',
         element: <CartPage />,
+      },
+      {
+        path: '*',
+        element: <ErrorPage />,
       },
     ],
   },
