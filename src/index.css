@@ -3,6 +3,7 @@
 
 @theme {
   --radius-custom: 30px;
+  --text-error: 160px;
 }
 
 body {
