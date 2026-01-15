@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 
 export default function ErrorPage() {
   return (
-    <main className='flex min-h-[80vh] flex-col items-center justify-center text-center'>
+    <main className='flex min-h-screen flex-col items-center justify-center text-center'>
       <h1 className='mb-4 text-error font-black'>Oops!</h1>
       <h2 className='mb-6 text-xl font-semibold uppercase'>
         404 - Page Not Found
