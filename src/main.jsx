@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router';
 import { Toaster } from 'sonner';
 
 import App from './App';
+import { CartProvider } from './contexts/CartContext';
 import CartPage from './layouts/CartPage';
 import ErrorPage from './layouts/ErrorPage';
 import HomePage from './layouts/HomePage';
@@ -39,8 +40,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} future={{ v7_startTransition: true }} />
-    <Toaster richColors />
+    <CartProvider>
+      <RouterProvider router={router} future={{ v7_startTransition: true }} />
+      <Toaster richColors />
+    </CartProvider>
   </StrictMode>
 );
 
