@@ -1,5 +1,7 @@
 import { CirclePlus } from 'lucide-react';
 
+import { useCart } from '../contexts/CartContext';
+
 export default function ProductCard({
   id,
   image,
@@ -9,6 +11,11 @@ export default function ProductCard({
   rating: { count, rate },
   onProductClick,
 }) {
+  const { addToCart } = useCart();
+  function handleAddToCart() {
+    addToCart({ id, image, title, category, price, count, rate });
+  }
+
   return (
     <div className='w-80 rounded-custom border border-neutral-300 p-4 shadow-xs transition-shadow duration-150 ease-out hover:shadow-md'>
       <img
@@ -28,6 +35,7 @@ export default function ProductCard({
           className='hover:cursor-pointer'
           size={28}
           color='#fb923c'
+          onClick={handleAddToCart}
         />
       </div>
       <p className='mb-2 text-xs text-neutral-500 uppercase'>{category}</p>
