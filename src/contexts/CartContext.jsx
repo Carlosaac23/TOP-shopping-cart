@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 import { toast } from 'sonner';
+
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
