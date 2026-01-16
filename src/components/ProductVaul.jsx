@@ -1,3 +1,5 @@
+import { useCart } from '../contexts/CartContext';
+
 export default function ProductVaul({
   title,
   category,
@@ -6,6 +8,11 @@ export default function ProductVaul({
   price,
   rating: { rate, count },
 }) {
+  const { addToCart } = useCart();
+  function handleAddToCart() {
+    addToCart({ image, title, category, price, count, rate });
+  }
+
   return (
     <div className='flex items-center justify-between gap-8 rounded-custom border border-neutral-300 p-4 shadow-xs'>
       <div className='w-1/2'>
@@ -16,9 +23,18 @@ export default function ProductVaul({
         />
       </div>
       <div>
-        <h2 className='mb-2 text-lg font-bold tracking-wide text-orange-400'>
-          {title}
-        </h2>
+        <div className='flex items-center gap-6'>
+          <h2 className='text-lg font-bold tracking-wide text-orange-400'>
+            {title}
+          </h2>
+          <button
+            className='rounded-md bg-orange-400 px-4 py-1 text-orange-50 shadow-xs hover:cursor-pointer'
+            type='button'
+            onClick={handleAddToCart}
+          >
+            Add to cart
+          </button>
+        </div>
         <p className='mb-2 inline-block rounded-sm bg-neutral-200 px-3 py-1 text-xs font-semibold text-neutral-800 capitalize'>
           Category: {category}
         </p>
