@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { toast } from 'sonner';
 
 import { fetchProduct } from '../lib/fetch-product';
 
@@ -11,6 +12,9 @@ function useProduct(productId) {
     async function fetchData() {
       try {
         if (!productId) return;
+
+        setIsLoading(true);
+        setProduct(null);
 
         const data = await fetchProduct(productId);
         setProduct(data);
