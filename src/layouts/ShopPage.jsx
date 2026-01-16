@@ -1,46 +1,20 @@
-import { useEffect, useState } from 'react';
 import { BeatLoader } from 'react-spinners';
 import { toast } from 'sonner';
 
 import VaulDrawer from '@/Drawer';
 import ProductCard from '@/ProductCard';
 
-import { fetchProducts } from '../lib/fetch-products';
-
-function useProducts() {
-  const [products, setProducts] = useState(null);
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const data = await fetchProducts();
-        setProducts(data);
-        setError(null);
-      } catch (error) {
-        setError(error.message);
-        setProducts(null);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    fetchData();
-  }, []);
-
-  return { products, error, isLoading };
-}
+import { useProductDrawer } from '../hooks/useProductDrawer';
+import { useProducts } from '../hooks/useProducts';
 
 export default function ShopPage() {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [selectedProductId, setSelectedProductId] = useState(null);
+  const {
+    isDrawerOpen,
+    selectedProductId,
+    handleProductClick,
+    handleCloseDrawer,
+  } = useProductDrawer();
   const { products, error, isLoading } = useProducts();
-
-  function handleProductClick(productId) {
-    setIsDrawerOpen(true);
-    setSelectedProductId(productId);
-  }
 
   return (
     <main>
@@ -71,7 +45,7 @@ export default function ShopPage() {
       <VaulDrawer
         isOpen={isDrawerOpen}
         productId={selectedProductId}
-        onClose={() => setIsDrawerOpen(false)}
+        onClose={handleCloseDrawer}
       />
     </main>
   );
