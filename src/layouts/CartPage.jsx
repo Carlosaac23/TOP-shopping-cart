@@ -1,9 +1,22 @@
+import ProductInfo from '@/ProductInfo';
+
+import { useCart } from '../contexts/CartContext';
+
 export default function CartPage() {
+  const { cartItems } = useCart();
+  console.log(cartItems);
+
   return (
-    <main className='mx-10 flex justify-between'>
-      <div>
-        <h1 className='text-4xl font-bold tracking-tight'>My Shopping Cart</h1>
-        <p>Lis of Products:</p>
+    <main className='mx-10 flex justify-between gap-6'>
+      <div className='w-9/12'>
+        <h1 className='my-8 text-4xl font-bold tracking-tight'>
+          My Shopping Cart
+        </h1>
+        <div className='mb-6 flex flex-col gap-2'>
+          {cartItems.map(product => (
+            <ProductInfo key={product.id} {...product} />
+          ))}
+        </div>
       </div>
       <div>
         <h2>Summary</h2>
