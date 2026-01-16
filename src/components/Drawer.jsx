@@ -32,8 +32,6 @@ export default function VaulDrawer({ productId, isOpen, onClose }) {
     fetchData();
   }, [productId]);
 
-  console.log(product);
-
   return (
     <Drawer.Root open={isOpen} onOpenChange={onClose}>
       <Drawer.Portal>
