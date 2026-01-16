@@ -19,7 +19,7 @@ export default function ProductVaul({
         <h2 className='mb-2 text-lg font-bold tracking-wide text-orange-400'>
           {title}
         </h2>
-        <p className='mb-2 inline-block rounded-sm bg-neutral-200 px-3 py-1 text-xs font-semibold text-neutral-800'>
+        <p className='mb-2 inline-block rounded-sm bg-neutral-200 px-3 py-1 text-xs font-semibold text-neutral-800 capitalize'>
           Category: {category}
         </p>
         <p className='mb-3 text-sm'>{description}</p>
