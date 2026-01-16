@@ -1,11 +1,13 @@
 import { CirclePlus } from 'lucide-react';
 
 export default function ProductCard({
+  id,
   image,
   title,
   category,
   price,
   rating: { count, rate },
+  onProductClick,
 }) {
   return (
     <div className='w-80 rounded-custom border border-neutral-300 p-4 shadow-xs transition-shadow duration-150 ease-out hover:shadow-md'>
@@ -16,7 +18,8 @@ export default function ProductCard({
       />
       <div className='flex items-center justify-between py-4'>
         <h2
-          className='w-[75%] truncate text-orange-400 hover:text-wrap'
+          className='w-[75%] truncate text-orange-400 hover:cursor-pointer'
+          onClick={() => onProductClick(id)}
           title={title}
         >
           {title}
