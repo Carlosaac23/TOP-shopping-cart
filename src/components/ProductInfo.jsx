@@ -1,9 +1,13 @@
 import { useCart } from '../contexts/CartContext';
 
 export default function ProductInfo({ id, image, title, price, quantity }) {
-  const { removeFromCart } = useCart();
+  const { removeFromCart, updateQuantity } = useCart();
   function handleRemoveFromCart() {
     removeFromCart(id);
+  }
+
+  function handleUpdateQuantity() {
+    updateQuantity();
   }
 
   return (
@@ -24,9 +28,26 @@ export default function ProductInfo({ id, image, title, price, quantity }) {
           </p>
         </div>
       </div>
-      <div>
-        <p>Quantity: {quantity}</p>
-        <p>Price: {price}</p>
+      <div className='flex flex-col justify-between'>
+        <div className='flex gap-2'>
+          <p>Quantity:</p>
+          <input
+            className='bg-orange-50 pl-2'
+            value={quantity}
+            onChange={handleUpdateQuantity}
+            type='number'
+            name='quantity'
+            id='quantity'
+          />
+        </div>
+        <div className='self-end'>
+          <p>
+            Each: <span className='font-bold'>${price}</span>
+          </p>
+          <p>
+            Total: <span className='font-bold'>$500</span>
+          </p>
+        </div>
       </div>
     </div>
   );
