@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { BeatLoader } from 'react-spinners';
 import { toast } from 'sonner';
 
+import VaulDrawer from '@/Drawer';
 import ProductCard from '@/ProductCard';
 
 import { fetchProducts } from '../lib/fetch-products';
@@ -32,11 +33,13 @@ function useProducts() {
 }
 
 export default function ShopPage() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [selectedProductId, setSelectedProductId] = useState(null);
   const { products, error, isLoading } = useProducts();
 
-  if (error) {
-    toast.error(error);
-    return;
+  function handleProductClick(productId) {
+    setIsDrawerOpen(true);
+    setSelectedProductId(productId);
   }
 
   return (
@@ -44,7 +47,7 @@ export default function ShopPage() {
       <h1 className='my-8 text-center text-4xl font-bold tracking-tight'>
         Products
       </h1>
-      {isLoading ? (
+      {isLoading && (
         <BeatLoader
           size={20}
           color='#fb923c'
@@ -52,13 +55,24 @@ export default function ShopPage() {
             textAlign: 'center',
           }}
         />
-      ) : (
+      )}
+      {error && toast.error(error)}
+      {products && (
         <div className='mx-8 mb-10 flex flex-wrap justify-center gap-6'>
           {products?.map(product => (
-            <ProductCard key={product.id} {...product} />
+            <ProductCard
+              key={product.id}
+              {...product}
+              onProductClick={handleProductClick}
+            />
           ))}
         </div>
       )}
+      <VaulDrawer
+        isOpen={isDrawerOpen}
+        productId={selectedProductId}
+        onClose={() => setIsDrawerOpen(false)}
+      />
     </main>
   );
 }
