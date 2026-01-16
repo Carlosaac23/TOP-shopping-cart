@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { BeatLoader } from 'react-spinners';
 import { toast } from 'sonner';
 
+import VaulDrawer from '@/Drawer';
 import ProductCard from '@/ProductCard';
 
 import { fetchProducts } from '../lib/fetch-products';
@@ -47,11 +48,13 @@ function useFilterProducts() {
 }
 
 export default function HomePage() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [selectedProductId, setSelectedProductId] = useState(null);
   const { data: filteredProducts, error, isLoading } = useFilterProducts();
 
-  if (error) {
-    toast.error(error);
-    return;
+  function handleProductClick(productId) {
+    setIsDrawerOpen(true);
+    setSelectedProductId(productId);
   }
 
   return (
@@ -67,8 +70,7 @@ export default function HomePage() {
         <h2 className='mb-6 text-xl font-semibold text-neutral-800'>
           Featured Products
         </h2>
-
-        {isLoading ? (
+        {isLoading && (
           <BeatLoader
             size={20}
             color='#fb923c'
@@ -76,14 +78,26 @@ export default function HomePage() {
               textAlign: 'center',
             }}
           />
-        ) : (
+        )}
+        {error && toast.error(error)}
+
+        {filteredProducts && (
           <div className='grid gap-6 sm:grid-cols-2 md:grid-cols-3'>
             {filteredProducts?.map(product => (
-              <ProductCard key={product.id} {...product} />
+              <ProductCard
+                key={product.id}
+                {...product}
+                onProductClick={handleProductClick}
+              />
             ))}
           </div>
         )}
       </section>
+      <VaulDrawer
+        isOpen={isDrawerOpen}
+        productId={selectedProductId}
+        onClose={() => setIsDrawerOpen(false)}
+      />
     </main>
   );
 }
