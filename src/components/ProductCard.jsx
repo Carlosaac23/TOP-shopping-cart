@@ -13,7 +13,7 @@ export default function ProductCard({
 }) {
   const { addToCart } = useCart();
   function handleAddToCart() {
-    addToCart({ id, image, title, category, price, count, rate });
+    addToCart({ id, image, title, category, price, rating: { count, rate } });
   }
 
   return (

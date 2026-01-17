@@ -1,6 +1,7 @@
 import { useCart } from '../contexts/CartContext';
 
 export default function ProductVaul({
+  id,
   title,
   category,
   description,
@@ -10,7 +11,7 @@ export default function ProductVaul({
 }) {
   const { addToCart } = useCart();
   function handleAddToCart() {
-    addToCart({ image, title, category, price, count, rate });
+    addToCart({ id, image, title, category, price, rating: { rate, count } });
   }
 
   return (
