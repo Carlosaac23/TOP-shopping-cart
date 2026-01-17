@@ -6,8 +6,9 @@ export default function ProductInfo({ id, image, title, price, quantity }) {
     removeFromCart(id);
   }
 
-  function handleUpdateQuantity() {
-    updateQuantity();
+  function handleUpdateQuantity(e) {
+    const newQuantity = parseInt(e.target.value);
+    updateQuantity(id, newQuantity);
   }
 
   return (
@@ -32,7 +33,7 @@ export default function ProductInfo({ id, image, title, price, quantity }) {
         <div className='flex gap-2'>
           <p>Quantity:</p>
           <input
-            className='bg-orange-50 pl-2'
+            className='w-20 rounded-sm bg-orange-50 pl-2'
             value={quantity}
             onChange={handleUpdateQuantity}
             type='number'
@@ -45,7 +46,8 @@ export default function ProductInfo({ id, image, title, price, quantity }) {
             Each: <span className='font-bold'>${price}</span>
           </p>
           <p>
-            Total: <span className='font-bold'>$500</span>
+            Total:{' '}
+            <span className='font-bold'>${(price * quantity).toFixed(2)}</span>
           </p>
         </div>
       </div>
