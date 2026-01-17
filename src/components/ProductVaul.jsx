@@ -42,7 +42,7 @@ export default function ProductVaul({
         <p className='mb-3 text-sm'>{description}</p>
 
         <p className='text-xlg mb-3 inline-block rounded-md bg-orange-400 px-3 py-1 font-bold'>
-          {price}
+          ${price}
         </p>
         <div className='flex gap-2 text-sm'>
           <span className='font-semibold'>Rating: {rate}</span>
