@@ -1,3 +1,5 @@
+import { toast } from 'sonner';
+
 import ProductInfo from '@/ProductInfo';
 
 import { useCart } from '../contexts/CartContext';
@@ -13,6 +15,14 @@ export default function CartPage() {
   const salesTax = fakeSalesTaxes(subtotal);
   const total = subtotal + shippingCost + salesTax;
 
+  function handleCheckout() {
+    if (total === 0) {
+      toast.error('Add a product to your cart.');
+    } else {
+      toast.success('Your payment has been submitted.');
+    }
+  }
+
   return (
     <main className='mx-10 flex justify-between gap-6'>
       <div className='w-9/12'>
@@ -25,13 +35,19 @@ export default function CartPage() {
           ))}
         </div>
       </div>
-      <div>
-        <h2>Summary</h2>
-        <div>
-          <p>Do you have promo code?</p>
-          <input type='text' name='' id='' />
+      <div className='my-6'>
+        <h2 className='text-2xl font-semibold'>Summary</h2>
+        <div className='mb-4'>
+          <p className='text-sm'>Do you have promo code?</p>
+          <input
+            className='rounded-sm bg-orange-100 pl-1 placeholder:text-sm'
+            type='text'
+            name='promo'
+            id='promo'
+            placeholder='PROMOCODE'
+          />
         </div>
-        <div>
+        <div className='flex flex-col gap-1'>
           <h3>
             Subtotal:{' '}
             <span className='font-semibold'>${subtotal.toFixed(2)}</span>
@@ -53,12 +69,18 @@ export default function CartPage() {
           <p>
             Estimated Total:{' '}
             <span className='font-semibold'>
-              ${total === 33 ? '0' : total.toFixed(2)}
+              ${total === 0 ? 0 : total.toFixed(2)}
             </span>
           </p>
-          <button type='button'>Checkout</button>
+          <button
+            className='rounded-md bg-orange-400 px-4 py-1 text-orange-50 shadow-xs hover:cursor-pointer'
+            type='button'
+            onClick={handleCheckout}
+          >
+            Checkout
+          </button>
         </div>
-        <div>
+        <div className='mt-8 text-xs'>
           <p>
             Need help? Call us at{' '}
             <a className='underline' href='tel:+573007410161'>
