@@ -1,8 +1,8 @@
-import { BeatLoader } from 'react-spinners';
 import { toast } from 'sonner';
 
 import VaulDrawer from '@/Drawer';
 import ProductCard from '@/ProductCard';
+import { Spinner } from '@/ui/spinner';
 
 import { useFilteredProducts } from '../hooks/useFilteredProducts';
 import { useProductDrawer } from '../hooks/useProductDrawer';
@@ -30,13 +30,7 @@ export default function HomePage() {
           Featured Products
         </h2>
         {isLoading && (
-          <BeatLoader
-            size={20}
-            color='#fb923c'
-            cssOverride={{
-              textAlign: 'center',
-            }}
-          />
+          <Spinner className='mx-auto block size-7 text-orange-400' />
         )}
         {error && toast.error(error)}
 
