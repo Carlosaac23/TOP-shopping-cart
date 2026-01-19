@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 
-import { fetchProduct } from '../lib/fetch-product';
+import { fetchProduct } from '@/lib/fetch-product';
 
 export function useProduct(productId) {
   const [product, setProduct] = useState(null);

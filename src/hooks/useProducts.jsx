@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { fetchProducts } from '../lib/fetch-products';
+import { fetchProducts } from '@/lib/fetch-products';
 
 export function useProducts() {
   const [products, setProducts] = useState(null);

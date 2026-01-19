@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-import { fetchProducts } from '../lib/fetch-products';
-import { randomNumber } from '../utils';
+import { fetchProducts } from '@/lib/fetch-products';
+import { randomNumber } from '@/utils';
 
 export function useFilteredProducts() {
   const [data, setData] = useState(null);

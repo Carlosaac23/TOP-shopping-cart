@@ -1,10 +1,9 @@
 import { toast } from 'sonner';
 import { Drawer } from 'vaul';
 
-import { useProduct } from '../hooks/useProduct';
-
-import ProductVaul from './ProductVaul';
-import { Spinner } from './ui/spinner';
+import ProductVaul from '@/components/ProductVaul';
+import { Spinner } from '@/components/ui/spinner';
+import { useProduct } from '@/hooks/useProduct';
 
 export default function VaulDrawer({ productId, isOpen, onClose }) {
   const { product, error, isLoading } = useProduct(productId);

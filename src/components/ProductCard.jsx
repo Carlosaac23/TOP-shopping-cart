@@ -1,6 +1,6 @@
 import { CirclePlus } from 'lucide-react';
 
-import { useCart } from '../contexts/CartContext';
+import { useCart } from '@/contexts/CartContext';
 
 export default function ProductCard({
   id,

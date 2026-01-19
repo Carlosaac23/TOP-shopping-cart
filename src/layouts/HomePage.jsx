@@ -1,11 +1,10 @@
 import { toast } from 'sonner';
 
-import VaulDrawer from '@/Drawer';
-import ProductCard from '@/ProductCard';
-import { Spinner } from '@/ui/spinner';
-
-import { useFilteredProducts } from '../hooks/useFilteredProducts';
-import { useProductDrawer } from '../hooks/useProductDrawer';
+import VaulDrawer from '@/components/Drawer';
+import ProductCard from '@/components/ProductCard';
+import { Spinner } from '@/components/ui/spinner';
+import { useFilteredProducts } from '@/hooks/useFilteredProducts';
+import { useProductDrawer } from '@/hooks/useProductDrawer';
 
 export default function HomePage() {
   const {

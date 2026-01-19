@@ -1,7 +1,7 @@
 import { ShoppingBasket } from 'lucide-react';
 import { Link } from 'react-router';
 
-import { useCart } from '../contexts/CartContext';
+import { useCart } from '@/contexts/CartContext';
 
 export default function Header() {
   const { getTotalItems } = useCart();

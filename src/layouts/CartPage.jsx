@@ -1,9 +1,8 @@
 import { toast } from 'sonner';
 
-import ProductInfo from '@/ProductInfo';
-
-import { useCart } from '../contexts/CartContext';
-import { fakeShippingCosts, fakeSalesTaxes } from '../utils';
+import ProductInfo from '@/components/ProductInfo';
+import { useCart } from '@/contexts/CartContext';
+import { fakeShippingCosts, fakeSalesTaxes } from '@/utils';
 
 export default function CartPage() {
   const { cartItems } = useCart();

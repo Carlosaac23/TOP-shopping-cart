@@ -5,12 +5,12 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import { Toaster } from 'sonner';
 
-import App from './App';
-import { CartProvider } from './contexts/CartContext';
-import CartPage from './layouts/CartPage';
-import ErrorPage from './layouts/ErrorPage';
-import HomePage from './layouts/HomePage';
-import ProductsPage from './layouts/ProductsPage';
+import App from '@/App';
+import { CartProvider } from '@/contexts/CartContext';
+import CartPage from '@/layouts/CartPage';
+import ErrorPage from '@/layouts/ErrorPage';
+import HomePage from '@/layouts/HomePage';
+import ProductsPage from '@/layouts/ProductsPage';
 
 const router = createBrowserRouter([
   {
