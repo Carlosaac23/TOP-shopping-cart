@@ -3,7 +3,7 @@ import { toast } from 'sonner';
 
 import { fetchProduct } from '../lib/fetch-product';
 
-function useProduct(productId) {
+export function useProduct(productId) {
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -33,5 +33,3 @@ function useProduct(productId) {
 
   return { product, error, isLoading };
 }
-
-export { useProduct };

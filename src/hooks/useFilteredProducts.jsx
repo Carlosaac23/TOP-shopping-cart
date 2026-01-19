@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { fetchProducts } from '../lib/fetch-products';
 import { randomNumber } from '../utils';
 
-function useFilteredProducts() {
+export function useFilteredProducts() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -41,5 +41,3 @@ function useFilteredProducts() {
 
   return { data, error, isLoading };
 }
-
-export { useFilteredProducts };

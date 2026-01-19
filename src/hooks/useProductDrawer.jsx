@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function useProductDrawer() {
+export function useProductDrawer() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState(null);
 
@@ -20,4 +20,3 @@ function useProductDrawer() {
     handleCloseDrawer,
   };
 }
-export { useProductDrawer };

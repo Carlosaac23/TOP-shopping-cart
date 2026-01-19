@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { fetchProducts } from '../lib/fetch-products';
 
-function useProducts() {
+export function useProducts() {
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -26,5 +26,3 @@ function useProducts() {
 
   return { products, error, isLoading };
 }
-
-export { useProducts };
