@@ -27,7 +27,7 @@ export default function Header() {
             to='shop'
             className='rounded-md px-4 py-2 hover:bg-orange-600 hover:text-orange-50'
           >
-            Shop
+            Products
           </Link>
           <Link
             to='cart'
