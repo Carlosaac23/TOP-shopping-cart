@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { toast } from 'sonner';
 
 import ProductInfo from '@/components/ProductInfo';
@@ -6,16 +7,19 @@ import { fakeShippingCosts, fakeSalesTaxes } from '@/utils';
 
 export default function CartPage() {
   const { cartItems } = useCart();
-  const subtotal = cartItems.reduce(
-    (total, product) => total + product.price * product.quantity,
-    0
-  );
-  const shippingCost = fakeShippingCosts(subtotal);
-  const salesTax = fakeSalesTaxes(subtotal);
-  const total = subtotal + shippingCost + salesTax;
+  const subtotalAmount = useMemo(() => {
+    return cartItems.reduce(
+      (total, product) => total + product.price * product.quantity,
+      0
+    );
+  }, [cartItems]);
+
+  const shippingCost = fakeShippingCosts(subtotalAmount);
+  const salesTax = fakeSalesTaxes(subtotalAmount);
+  const totalPrice = subtotalAmount + shippingCost + salesTax;
 
   function handleCheckout() {
-    if (total === 0) {
+    if (totalPrice === 0) {
       toast.error('Add a product to your cart.');
     } else {
       toast.success('Your payment has been submitted.');
@@ -48,28 +52,25 @@ export default function CartPage() {
         </div>
         <div className='flex flex-col gap-1'>
           <h3>
-            Subtotal:{' '}
-            <span className='font-semibold'>${subtotal.toFixed(2)}</span>
+            Subtotal: <strong>${subtotalAmount.toFixed(2)}</strong>
           </h3>
           <p>
             Shipping:{' '}
-            <span className='font-semibold'>
-              {subtotal === 0
+            <strong>
+              {' '}
+              {subtotalAmount === 0
                 ? '$0'
                 : shippingCost === 0
                   ? 'Free'
                   : `$${shippingCost.toFixed(2)}`}
-            </span>
+            </strong>
           </p>
           <p>
-            Sales Tax:{' '}
-            <span className='font-semibold'>${salesTax.toFixed(2)}</span>
+            Sales Tax: <strong>${salesTax.toFixed(2)}</strong>
           </p>
           <p>
             Estimated Total:{' '}
-            <span className='font-semibold'>
-              ${total === 0 ? 0 : total.toFixed(2)}
-            </span>
+            <strong>${totalPrice === 0 ? 0 : totalPrice.toFixed(2)}</strong>
           </p>
           <button
             className='rounded-md bg-orange-400 px-4 py-1 text-orange-50 shadow-xs hover:cursor-pointer'
