@@ -10,7 +10,7 @@ import { CartProvider } from './contexts/CartContext';
 import CartPage from './layouts/CartPage';
 import ErrorPage from './layouts/ErrorPage';
 import HomePage from './layouts/HomePage';
-import ShopPage from './layouts/ShopPage';
+import ProductsPage from './layouts/ProductsPage';
 
 const router = createBrowserRouter([
   {
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'shop',
-        element: <ShopPage />,
+        element: <ProductsPage />,
       },
       {
         path: 'cart',
