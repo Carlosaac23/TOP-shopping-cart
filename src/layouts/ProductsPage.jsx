@@ -1,13 +1,13 @@
-import { BeatLoader } from 'react-spinners';
 import { toast } from 'sonner';
 
 import VaulDrawer from '@/Drawer';
 import ProductCard from '@/ProductCard';
+import { Spinner } from '@/ui/spinner';
 
 import { useProductDrawer } from '../hooks/useProductDrawer';
 import { useProducts } from '../hooks/useProducts';
 
-export default function ShopPage() {
+export default function ProductsPage() {
   const {
     isDrawerOpen,
     selectedProductId,
@@ -22,13 +22,7 @@ export default function ShopPage() {
         Products
       </h1>
       {isLoading && (
-        <BeatLoader
-          size={20}
-          color='#fb923c'
-          cssOverride={{
-            textAlign: 'center',
-          }}
-        />
+        <Spinner className='mx-auto block size-7 text-orange-400' />
       )}
       {error && toast.error(error)}
       {products && (
