@@ -6,7 +6,7 @@ const CartContext = createContext();
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
 
-  function addToCart(product) {
+  const addToCart = product => {
     setCartItems(prev => {
       const existingItem = prev.find(item => item.id === product.id);
 
@@ -21,13 +21,13 @@ export function CartProvider({ children }) {
       toast.success('Product added successfully!');
       return [...prev, { ...product, quantity: 1 }];
     });
-  }
+  };
 
-  function removeFromCart(productId) {
+  const removeFromCart = productId => {
     setCartItems(prev => prev.filter(item => item.id !== productId));
-  }
+  };
 
-  function updateQuantity(productId, newQuantity) {
+  const updateQuantity = (productId, newQuantity) => {
     if (newQuantity <= 0) {
       removeFromCart(productId);
       return;
@@ -38,11 +38,11 @@ export function CartProvider({ children }) {
         item.id === productId ? { ...item, quantity: newQuantity } : item
       )
     );
-  }
+  };
 
-  function getTotalItems() {
+  const getTotalItems = () => {
     return cartItems.reduce((total, item) => total + item.quantity, 0);
-  }
+  };
 
   return (
     <CartContext.Provider

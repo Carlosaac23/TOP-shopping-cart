@@ -8,7 +8,7 @@ export function useProducts() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       try {
         const data = await fetchProducts();
         setProducts(data);
@@ -19,7 +19,7 @@ export function useProducts() {
       } finally {
         setIsLoading(false);
       }
-    }
+    };
 
     fetchData();
   }, []);
