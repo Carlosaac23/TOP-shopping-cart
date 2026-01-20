@@ -2,14 +2,14 @@ import { useCart } from '@/contexts/CartContext';
 
 export default function ProductInfo({ id, image, title, price, quantity }) {
   const { removeFromCart, updateQuantity } = useCart();
-  function handleRemoveFromCart() {
+  const handleRemoveFromCart = () => {
     removeFromCart(id);
-  }
+  };
 
-  function handleUpdateQuantity(e) {
+  const handleUpdateQuantity = e => {
     const newQuantity = parseInt(e.target.value);
     updateQuantity(id, newQuantity);
-  }
+  };
 
   return (
     <div className='flex justify-between rounded-md bg-orange-100 p-4'>

@@ -18,13 +18,13 @@ export default function CartPage() {
   const salesTax = fakeSalesTaxes(subtotalAmount);
   const totalPrice = subtotalAmount + shippingCost + salesTax;
 
-  function handleCheckout() {
+  const handleCheckout = () => {
     if (totalPrice === 0) {
       toast.error('Add a product to your cart.');
     } else {
       toast.success('Your payment has been submitted.');
     }
-  }
+  };
 
   return (
     <main className='mx-10 flex justify-between gap-6'>

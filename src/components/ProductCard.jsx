@@ -12,9 +12,9 @@ export default function ProductCard({
   onProductClick,
 }) {
   const { addToCart } = useCart();
-  function handleAddToCart() {
+  const handleAddToCart = () => {
     addToCart({ id, image, title, category, price, rating: { count, rate } });
-  }
+  };
 
   return (
     <div className='w-80 rounded-custom border border-neutral-300 p-4 shadow-xs transition-shadow duration-150 ease-out hover:shadow-md'>

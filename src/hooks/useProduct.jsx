@@ -9,7 +9,7 @@ export function useProduct(productId) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       try {
         if (!productId) return;
 
@@ -26,7 +26,7 @@ export function useProduct(productId) {
       } finally {
         setIsLoading(false);
       }
-    }
+    };
 
     fetchData();
   }, [productId]);

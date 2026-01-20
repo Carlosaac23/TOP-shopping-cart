@@ -9,7 +9,7 @@ export function useFilteredProducts() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       try {
         const filteredProducts = [];
         const data = await fetchProducts();
@@ -34,7 +34,7 @@ export function useFilteredProducts() {
       } finally {
         setIsLoading(false);
       }
-    }
+    };
 
     fetchData();
   }, []);

@@ -10,9 +10,9 @@ export default function ProductVaul({
   rating: { rate, count },
 }) {
   const { addToCart } = useCart();
-  function handleAddToCart() {
+  const handleAddToCart = () => {
     addToCart({ id, image, title, category, price, rating: { rate, count } });
-  }
+  };
 
   return (
     <div className='flex items-center justify-between gap-8 rounded-custom border border-neutral-300 p-4 shadow-xs'>
